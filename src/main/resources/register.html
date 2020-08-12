@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript">
+        function sprawdzKodPocztowy(code) {
+            if (!code.value.match(/^[0-9]{2}-[0-9]{3}$/)) {
+                code.value="";
+                alert("Wprowadzono błędny kod pocztowy");
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Rejestracja</h1>
+<form method="post" action="">
+    <div class="form-group">
+        <label for="firstName">Imię</label><br/>
+        <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Wpisz imię"><br/>
+        <label for="lastName">Nazwisko</label><br/>
+        <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Wpisz nazwisko"><br/>
+    </div>
+    <div class="row">
+        <label class="col-form-label col-sm-2 pt-0">Płeć</label>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex" id="woman" value="woman">
+                <label class="form-check-label" for="woman">
+                    Kobieta
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex" id="man" value="man">
+                <label class="form-check-label" for="man">
+                    Mężczyzna
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="undersex">
+        <label for="email">Adres e-mail</label><br/>
+        <input class="form-control" id="email" name="email" type="email" placeholder="Wpisz adres e-mail"><br/>
+        <label for="password">Hasło</label><br/>
+        <input class="form-control" id="password" name="password" type="password" maxlength="20" minlength="8"><br/>
+        <div id="address" class="form-row">
+            <div class="form-group col-md-6" id="city">
+                <label for="miasto">Miasto</label><br/>
+                <input class="form-control" id="miasto" name="miasto" type="text"><br/>
+            </div>
+            <div class="form-group col-md-4" id="region">
+                <label for="wojewodztwo">Województwo</label><br/>
+                <select class="form-control" name="wojewodztwo" id="wojewodztwo" required="required">
+                    <option selected disabled>Wybierz</option>
+                    <option value="mazowieckie">mazowieckie</option>
+                    <option value="lodzkie">łódzkie</option>
+                    <option value="wielkopolskie">wielkopolskie</option>
+                    <option value="malopolskie">małopolskie</option>
+                </select>
+            </div>
+            <div id="code" class="form-group col-md-2">
+                <label for="kod">Kod pocztowy</label><br/>
+                <input class="form-control" type="text" name="kod" id="kod" onfocusout="sprawdzKodPocztowy(this)" placeholder="format: 00-000">
+            </div>
+        </div>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="acceptreg">
+        <label for="acceptreg">Akceptuję <a href="regulamin.html">regulamin</a></label><br/>
+        <input class="form-check-input" type="checkbox" id="acceptmark" checked>
+        <label for="acceptmark">Wyrażam zgodę na otrzymywanie informacji marketingowych</label><br/>
+    </div>
+    <button class="btn btn-primary mb-2" type="submit">Rejestruj</button>
+</form>
+</body>
+</html>
